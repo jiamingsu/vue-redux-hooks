@@ -27,7 +27,7 @@ export function useSelector<S = any, A extends Action<any> = AnyAction>(selector
     }
     selectedState = newSelectedState;
     reactiveSelectedState.value = selectedState;
-  })
+  });
   onBeforeUnmount(() => unsubscribe());
   return reactiveSelectedState;
 }
@@ -36,6 +36,6 @@ export function useDispatch<S = any, A extends Action<any> = AnyAction>() {
   const store = useStore<S, A>();
   const dispatch = (action: A) => {
     store.dispatch(action);
-  }
+  };
   return dispatch;
 }

@@ -1,16 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
 
-function counter(state = 0, action: any) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-    default:
-      return state;
-  }
-}
+const rootReducer = combineReducers({
+  todos,
+  visibilityFilter,
+});
 
-const store = createStore(counter);
+const store = createStore(rootReducer);
 
 export default store;

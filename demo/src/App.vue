@@ -1,25 +1,28 @@
 <template>
   <div id="app">
-    <div>{{ counter }}</div>
-    <button @click="dispatch({type: 'INCREMENT'})"/>
+    <ol>
+      <li v-for="todo in todos" :key="todo.id">{{todo.text}}</li>
+    </ol>
+    <button @click="dispatch(addTodo('test'))"/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {defineComponent} from '@vue/composition-api';
-import {useProvider, useDispatch, useSelector} from './hooks/vue-redux-hooks';
+import { defineComponent } from '@vue/composition-api';
+import { useProvider, useDispatch, useSelector } from './hooks/vue-redux-hooks';
 import store from './redux-store';
+import { addTodo } from './redux-store/actions';
 import HelloWorld from './components/HelloWorld.vue';
 
 export default defineComponent({
   setup: () => {
     useProvider(store);
     const dispatch = useDispatch();
-    const counter = useSelector((state: number) => state);
-    return {counter, dispatch}
-  }
-})
+    const todos = useSelector((state: any) => state.todos);
+    return { todos, dispatch, addTodo };
+  },
+});
 </script>
 
 <style>
