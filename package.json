@@ -1,14 +1,17 @@
 {
-  "name": "vue-redux-hooks",
-  "version": "0.1.0",
-  "repository": "https://github.com/VincentSJM/vue-redux-hooks.git",
+  "name": "@jsu/vue-redux-hooks",
+  "version": " 0.1.0",
+  "description": "Redux Hooks API for Vue",
+  "repository": "https://github.com/jiamingsu/vue-redux-hooks.git",
   "license": "MIT",
   "author": "Jiaming Su",
-  "main": "index.js",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "scripts": {
     "build": "tsc",
     "demo:dev": "parcel demo/index.html -d demo/output",
-    "format": "prettier --write lib demo"
+    "format": "prettier --write lib demo",
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^1.3.6",
